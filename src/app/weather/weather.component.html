@@ -1,21 +1,31 @@
-<div class="text-center container">
-  <div>
-    <h1>Today's weather</h1>
-    <div>
-      <h4>You are in {{currentLocation}}</h4>
-      <h4>{{weatherType}}</h4>
-      <h4>{{weatherDescription}}</h4>
+<div class="container">
+  <div class="text-center"><h1>Today's weather</h1></div>
+  <div class="row " style="padding-top: 40px;margin-top:20px">
+    <div class="col-md-4">
+        <div>
+          <h4>icon</h4>
+        </div>
+      </div>
+    <div class="col-md-4">
+      <div>
+        <h4>{{currentLocation}}</h4>
+        <h4>{{weatherType}}</h4>
+        <h4>{{weatherDescription}}</h4>
+      </div>
+    </div>
+    <div class="col-md-4" >
+      <div *ngIf="!showConvert">
+        <div><h4>{{tempInF}}<em>°F</em></h4></div>
+      </div>
+      <div *ngIf="showConvert">
+        <div><h4>{{tempInC}}<em>°C</em></h4> </div>
+      </div>
+      <div>
+        <div style="margin-top:29px"><button class="btn btn-primary" (click)="convert()">°C / °F</button></div>
+      </div>
     </div>
   </div>
-  <div>
-    <div *ngIf="!showConvert">
-      <div><h4>{{tempInF}}<em>°F</em></h4></div>
-    </div>
-    <div *ngIf="showConvert">
-      <div><h4>{{tempInC}}<em>°C</em></h4> </div>
-    </div>
-    
-  </div>
-  <!-- <p>{{humidity}}</p> -->
-  <button class="btn btn-primary" (click)="convert()">°C / °F</button>
+  
+
 </div>
+
