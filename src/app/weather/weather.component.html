@@ -1,0 +1,21 @@
+<div class="text-center container">
+  <div>
+    <h1>Today's weather</h1>
+    <div>
+      <h4>You are in {{currentLocation}}</h4>
+      <h4>{{weatherType}}</h4>
+      <h4>{{weatherDescription}}</h4>
+    </div>
+  </div>
+  <div>
+    <div *ngIf="!showConvert">
+      <div><h4>{{tempInF}}<em>°F</em></h4></div>
+    </div>
+    <div *ngIf="showConvert">
+      <div><h4>{{tempInC}}<em>°C</em></h4> </div>
+    </div>
+    
+  </div>
+  <!-- <p>{{humidity}}</p> -->
+  <button class="btn btn-primary" (click)="convert()">°C / °F</button>
+</div>
