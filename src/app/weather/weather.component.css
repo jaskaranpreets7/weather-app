@@ -1,3 +1,42 @@
-.container{
-    margin-top: 20px;
+.background {
+  
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: auto;
+    max-width: auto;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 1px solid rgba(0,0,0,.125);
+    border-radius: 5px;
+    margin-left:25%;
+    margin-right: 25% 
+  }
+  /* .background > div {
+    margin: 10px;
+    line-height: 75px;
+  } */
+.icon{
+    width:150px
+}
+.bgImage1{
+
+    background-size:cover; 
+    width:100%;
+    background-image:url('../../assets/DayTime.png');
+    height: 666px;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+}
+.bgImage2{
+    background-size:cover; 
+    background-image:url('../../assets/NightTime.jpg');
+    width: auto;
+    height: 666px;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+
 }

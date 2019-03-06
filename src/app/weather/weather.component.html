@@ -1,31 +1,32 @@
-<div class="container">
-  <div class="text-center"><h1>Today's weather</h1></div>
-  <div class="row " style="padding-top: 40px;margin-top:20px">
-    <div class="col-md-4">
-        <div>
-          <h4>icon</h4>
+<div [ngClass]=" isDay ? 'bgImage1' : 'bgImage2'">
+      <div class="text-center card-title">
+        <h1 style="color:whitesmoke" >Today's weather</h1>
+        <div class="text-right ">
+            <h4 style="color:whitesmoke">{{date | date :'MMM d, y, h:mm a'}}</h4>
         </div>
       </div>
-    <div class="col-md-4">
-      <div>
+  <div class="background"> 
+    <div class="row" style="margin-bottom: 20px">
+      <div  class="col-md-4 text-center" style="margin-top:30px;padding-right: 5px">
+        <img class="icon" src="../../assets/animated/cloudy-day-3.svg" />
+      </div>       
+      <div class="col-md-4 text-center" style="margin-top:55px;padding: 5px 26px 5px 5px">
         <h4>{{currentLocation}}</h4>
         <h4>{{weatherType}}</h4>
-        <h4>{{weatherDescription}}</h4>
+      </div>
+      <div  class="col-md-4 text-center" style="margin-top:55px; padding-left: 15px" >
+        <div *ngIf="!showConvert">
+          <div><h4>{{tempInF}}<em>°F</em></h4></div>
+        </div>
+        <div *ngIf="showConvert">
+          <div><h4>{{tempInC}}<em>°C</em></h4> </div>
+        </div>
+        <div>
+          <div style="margin-top:29px"><button class="btn btn-primary" (click)="convert()">°C / °F</button></div>
+        </div>
       </div>
     </div>
-    <div class="col-md-4" >
-      <div *ngIf="!showConvert">
-        <div><h4>{{tempInF}}<em>°F</em></h4></div>
-      </div>
-      <div *ngIf="showConvert">
-        <div><h4>{{tempInC}}<em>°C</em></h4> </div>
-      </div>
-      <div>
-        <div style="margin-top:29px"><button class="btn btn-primary" (click)="convert()">°C / °F</button></div>
-      </div>
-    </div>
-  </div>
-  
-
+      
+  </div>  
 </div>
 
