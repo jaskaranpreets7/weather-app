@@ -8,7 +8,7 @@ import {Observable} from 'rxjs';
 })
 export class WeatherService {
   
-
+  
   constructor(private http : HttpClient)  { }
 
   getWeather(currentLat, currentLog) : Observable<any> {

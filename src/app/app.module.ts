@@ -6,13 +6,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { WeatherComponent } from './weather/weather.component';
 import { WeatherService } from './weather/weather.service';
-import { IconPipe } from './weather/icon.pipe';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     WeatherComponent,
-    IconPipe
+    
   ],
   imports: [
     BrowserModule,
