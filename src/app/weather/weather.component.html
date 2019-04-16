@@ -1,6 +1,6 @@
 <div [ngClass]=" isDay ? 'bgImage1' : 'bgImage2'">
       <div class="text-center card-title">
-        <h1 style="color:whitesmoke" >Today's weather</h1>
+        <h1 style="color:whitesmoke" >{{title}}</h1>
         <div class="text-right ">
             <h4 style="color:whitesmoke">{{date | date :'MMM d, y, h:mm a'}}</h4>
         </div>
@@ -8,7 +8,21 @@
   <div class="background"> 
     <div class="row" style="margin-bottom: 20px">
       <div  class="col-md-4 text-center" style="margin-top:30px;padding-right: 5px">
-        <img class="icon" src="../../assets/animated/cloudy-day-3.svg" />
+        <div *ngIf="clear">
+            <img class="icon" src="../../assets/animated/day.svg" />
+        </div>
+        <div *ngIf="cloudy">
+            <img class="icon" src="../../assets/animated/cloudy-day-3.svg" />
+        </div>
+        <div *ngIf="rain">
+            <img class="icon" src="../../assets/animated/rainy-6.svg" />
+        </div>
+        <div *ngIf="snow">
+            <img class="icon" src="../../assets/animated/snowy-6svg" />
+        </div>
+        <div *ngIf="thunder">
+            <img class="icon" src="../../assets/animated/thunder.svg" />
+        </div>
       </div>       
       <div class="col-md-4 text-center" style="margin-top:55px;padding: 5px 26px 5px 5px">
         <h4>{{currentLocation}}</h4>

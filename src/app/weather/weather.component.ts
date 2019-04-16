@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { WeatherService } from './weather.service';
-import { log } from 'util';
+
 
 @Component({
   selector: 'app-weather',
@@ -8,6 +8,7 @@ import { log } from 'util';
   styleUrls: ['./weather.component.css']
 })
 export class WeatherComponent implements OnInit {
+  title:string ="Today's Weather" ;
   location: any;
   currentLog: any;
   currentLat: any;
@@ -22,9 +23,16 @@ export class WeatherComponent implements OnInit {
   isDay: boolean;
   date: any;
   currentTime: any;
+  clear:boolean = false;
+  cloudy:boolean = false;
+  snow:boolean = false;
+  rain:boolean = false;
+  thunder:boolean = false;
+
 
 
   constructor(private weatherservice: WeatherService) {
+    // this.title = "Today's Weather"
     this.currentTime = new Date().getHours();
     setInterval( () => {
       this.date = Date.now();
@@ -51,6 +59,7 @@ export class WeatherComponent implements OnInit {
       });
     }
   }
+
   weather(val1, val2){
     this.weatherservice.getWeather(this.currentLat, this.currentLog)
       .subscribe((res) => {
@@ -62,6 +71,8 @@ export class WeatherComponent implements OnInit {
         this.temperature  = Math.floor(9 / 5 * (this.temperature - 273) + 32);
         this.tempInC = Math.floor((this.temperature - 32) * 5 / 9);
         this.tempInF = Math.floor((this.tempInC) * 9 / 5 + 32);
+        this.iconChange(this.weatherType)
+
       });
   }
 
@@ -69,4 +80,27 @@ export class WeatherComponent implements OnInit {
   convert() {
     this.showConvert = !this.showConvert;
   }
+
+  iconChange(weatherType){
+
+    switch(this.weatherType){
+      case 'Clouds':
+        this.cloudy = true;
+        break;
+      case 'Rainy':
+        this.rain = true;
+        break;
+      case 'Snow':
+        this.snow = true;
+        break;
+      case 'Clear':
+        this.clear = true;
+        break;
+      case 'Thunder':
+        this.thunder = true;
+        break;
+    }
+    return
+  }
+
 }
